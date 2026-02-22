@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "client",
-    "slug": "client",
+    "name": "ecommerce",
+    "slug": "ecommerce",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "client",
+    "scheme": "ecommerce",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
