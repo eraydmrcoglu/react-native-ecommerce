@@ -17,15 +17,11 @@ import { seedProducts } from "./scripts/seedProducts.js";
 
 const app = express();
 
-// Connect to MongoDB
 await connectDB();
 
 app.post("/api/clerk", express.raw({ type: "application/json" }), clerkWebhook);
-
-// Middleware
 app.use(cors());
 
-// Stripe Webhook
 process.env.STRIPE_SECRET_KEY &&
   app.post(
     "/api/stripe",
@@ -36,7 +32,6 @@ process.env.STRIPE_SECRET_KEY &&
 app.use(express.json());
 app.use(clerkMiddleware());
 
-// Routes
 app.get("/", (req, res) => {
   res.send("Server is running");
 });
@@ -52,7 +47,6 @@ const PORT = process.env.PORT || 3000;
 
 await makeAdmin();
 
-// Seed products if no products are present
 await seedProducts(process.env.MONGODB_URI as string);
 
 app.listen(PORT, () => {
